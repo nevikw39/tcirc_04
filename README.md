@@ -36,8 +36,8 @@
 
 ### set
 
-- 無序性
-- 互異性
+- 無序性：元素預設由小到大
+- 互異性：元素不重複
 
 ### map
 
@@ -47,18 +47,24 @@
 
 *STL* 中有些資料結構並沒有直接被實作，而是提供一組特定的介面可以由其他容器實作。這類 __ADT__ *(Abstract Data Structure)* 包含：`stack`, `queue`, `priority_queue` *(heap)*。其中，`stack`, `queue` 預設以 `deque` 為內部依賴容器，`priority_queue` 則使用 `vector` 及 __<algorithm>__ 中的 *make_heap*, *push_heap*, *pop_heap* 等相關函式維護之。
 
+我們用 `push` 方法將元素送入容器、`pop` 方法將元素移出容器。注意 `pop` 回傳型態是為 *void*，__stack__ 必須由 `top` 方法取得疊頂的元素、__queue__, *priority_queue* 由 `front` 方法取得列首的元素。
+
 ## stack 堆疊
 
 是一個遵守 __LIFO__ *(Last In, First Out)* 原則的 `ADT`。
 
+如同在桌上堆東西，越後疊上去的越先被取出。
+
 ### 軼事
 
-`stack` 是非常重要的資料結構，現代電腦非常依賴之。比如一般程式語言中的函式呼叫，絕大多數都是基於 `stack` 的。因此遞迴崩潰時，就叫做 *stack overflow*，這也是國外知名程式論壇 [stackoverflow.com](https://stackoverflow.com/) 的命名緣由。
+`stack` 是非常實用重要的資料結構，現代電腦非常依賴之。比如一般程式語言中的函式呼叫，絕大多數都是基於 `stack` 的。因此遞迴崩潰時，就叫做 *stack overflow*，這也是國外知名程式論壇 [stackoverflow.com](https://stackoverflow.com/) 的命名緣由。
 
-如果問一個 Programmer __push__ 的相反，他會回答 __pop__。（`git` 的 *pull* 其實是 *fetch* + *merge*）
+如果問一個 Programmer __push__ 的相反，他會回答 __pop__。（`git` 的 *pull* 其實是 *fetch* + *merge* 喔 XDD）
 
 ## queue 佇列
 
-是一個遵守 __fIFO__ *(First In, First Out)* 原則的 `ADT`。
+是一個遵守 __FIFO__ *(First In, First Out)* 原則的 `ADT`。
+
+如同播放軟題的機制，越先被加入的越先播放。
 
 ## priority queue 優先權佇列，又稱 heap 堆積
