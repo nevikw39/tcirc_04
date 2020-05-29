@@ -49,19 +49,21 @@
 
 我們用 `push` 方法將元素送入容器、`pop` 方法將元素移出容器。注意 `pop` 回傳型態是為 *void*，__stack__ 必須由 `top` 方法取得疊頂的元素、__queue__, *priority_queue* 由 `front` 方法取得列首的元素。
 
-## stack 堆疊
+## Stack 堆疊
 
 是一個遵守 __LIFO__ *(Last In, First Out)* 原則的 `ADT`。
 
 如同在桌上堆東西，越後疊上去的越先被取出。
 
-### 練習：模板題
+即時演練：[模板題](https://judge.tcirc.tw/ShowProblem?problemid=b039)
 
-### 應用：鐵軌道岔
+### 應用
 
-### 括弧解析
+#### 鐵軌道岔
 
-### 運算式解析
+#### 括弧配對
+
+#### 運算式解析
 
 ### 軼事
 
@@ -69,14 +71,14 @@
 
 如果問一個 Programmer __push__ 的相反，他會回答 __pop__。（`git` 的 *pull* 其實是 *fetch* + *merge* 喔 XDD）
 
-## queue 佇列
+## Queue 佇列
 
 是一個遵守 __FIFO__ *(First In, First Out)* 原則的 `ADT`。
 
 如同播放軟題的機制，越先被加入的越先播放。
 
-### 練習：模板題
+即時演練：[模板題](https://judge.tcirc.tw/ShowProblem?problemid=b043)
 
 ### 約瑟夫問題
 
-## priority queue 優先權佇列，又稱 heap 堆積
+## Priority Queue 優先權佇列（又稱 Heap 堆積）
