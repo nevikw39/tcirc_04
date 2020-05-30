@@ -63,6 +63,14 @@
 
 #### 括弧配對
 
+觀察合法括弧字串，可以發現越早出現的左括弧，與之配對之右括弧即越早出現。也就是說，檢驗括弧字串的合法性可以利用先進後出的堆疊。
+
+每當讀到左括弧就壓入堆疊，而遇到右括弧時檢查堆疊頂端的左括弧是否能與之配對，注意確認堆疊內是否有元素。
+
+- [TCIRC Judge - b041](https://judge.tcirc.tw/ShowProblem?problemid=b041)
+- [GreenJudge d033](http://www.tcgs.tc.edu.tw:1218/ShowProblem?problemid=d033)
+- [UVA 673](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=8&page=show_problem&problem=614)
+
 #### 運算式解析
 
 ### 軼事
