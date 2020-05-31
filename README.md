@@ -104,3 +104,15 @@
 #### 約瑟夫問題
 
 ## Priority Queue 優先權佇列與 Heap 堆積
+
+*Priority Queue* 不是 *Queue*，就跟科氏力不是力一樣，原因是作業系統排程時，有些比較晚加入的工作比較急迫要插隊，所以才提出這種資料結構。總而言之，*Priority Queue* 是這樣的 `ADT`: 優先權越大的元素越早離開。
+
+*Priority Queue* 是抽象的，通常以 *Heap* 實作。*Heap* 是一種特殊的樹，對於任意節點其值必小於等於（或大於等於）其父節點。
+
+__STL__ `priority_queue` 則使用 `vector` 及 __<algorithm>__ 中的 *make_heap*, *push_heap*, *pop_heap* 等相關函式維護之。__PBDS__ 提供的 `priority_queue` 所使用的 *Heap* 有多種選擇，包括：`Binary Heap`, `Pairing Heap`, `Binomial Heap`, `Thin Heap` (Fibonacci Heap 的改良)。
+
+### 應用
+
+*Priority Queue* 在 __Prim Algorithm__, __Dijkstra Algorithm__ 中皆相當重要。
+
+#### Huffman Encoding 霍夫曼編碼
