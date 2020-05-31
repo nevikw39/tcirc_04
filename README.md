@@ -59,6 +59,8 @@
 
 ### 應用
 
+*Stack* 的應用十分廣泛，像是 __DFS__ *(Depth-first Search)* 等等。
+
 #### 鐵軌道岔
 
 #### 括弧配對
@@ -72,6 +74,14 @@
 - [UVA 673](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=8&page=show_problem&problem=614)
 
 #### 運算式解析
+
+日常生活中，一般人類使用的運算式表示法如 `A + B` 稱為「中序運算式 *(Infix Expression)*」，即運算子在兩運算元中間。可是這種表示法對電腦而言並不好懂，遂有人陸續提出前序、後序表示法。
+
+後序運算式 *(postfix Expression)*，顧名思義，就是運算子在兩運算元中間之後的表示法。也就是說， `A + B` 會變成 `A B +`。這種表示法的好處是不必理會運算子優先順序（先乘除後加減）也省去了繁複的括弧，例如 `A + (B + C) * D - E` 會變成 `B C + D * A + E -`。
+
+更深入一點探討電腦如何計算運算式吧。組合語言太難懂惹，茲以 *Java Bytecode* 為例。在 *Java* 中，假若你宣告兩個變數 `int a = 87, b = 69;` 並計算 `int c = a + b;`，則實際上會被編譯為八行位元組碼：`iconst_1`、`istore_1`、`iconst_2`、`istore_2`、`iload_1`、`iload_2`、`iadd`、`istore_3`。其中，前四個指令初始化 `a, b `，`iload_1`、`iload_2` 將 `a, b ` 分別 __push__ 入堆疊，`iadd` 將堆疊頂端兩個數 __pop__ 出後相加再把結果 __push__ 入堆疊，`istore_3` 才把堆疊頂端的結果存入 `c` 中。
+
+而如果我們要把中序式轉為後序式同樣可以借助堆疊。對於中序式的每個元素，若是 `(` 就入堆疊，`)` 就不斷輸出堆疊頂端元素直到遇到 `(`；若是運算子則不斷輸出堆疊頂端元素直到頂端運算子的優先權小於當前運算子；若是運算元則直接輸出。
 
 ### 軼事
 
@@ -87,6 +97,10 @@
 
 即時演練：[模板題](https://judge.tcirc.tw/ShowProblem?problemid=b043)
 
-### 約瑟夫問題
+### 應用
 
-## Priority Queue 優先權佇列（又稱 Heap 堆積）
+*Queue* 的應用也很廣泛，像是 __BFS__ *(Breadth-first Search)*、排程管理等等。
+
+#### 約瑟夫問題
+
+## Priority Queue 優先權佇列與 Heap 堆積
