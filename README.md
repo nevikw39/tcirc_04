@@ -116,3 +116,7 @@ __STL__ `priority_queue` 則使用 `vector` 及 __<algorithm>__ 中的 *make_hea
 *Priority Queue* 在 __Prim Algorithm__, __Dijkstra Algorithm__ 中皆相當重要。
 
 #### Huffman Encoding 霍夫曼編碼
+
+##### Add All
+
+##### 編碼長度
