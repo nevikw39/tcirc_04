@@ -63,6 +63,11 @@
 
 #### 鐵軌道岔
 
+火車的車廂在調度時通常有個中繼站，藉此重組順序。中繼站遵守 LIFO 原則，因此是個堆疊。
+
+- [TCIRC Judge - b040](https://judge.tcirc.tw/ShowProblem?problemid=b040)
+- [UVA 514](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=455)
+
 #### 括弧配對
 
 觀察合法括弧字串，可以發現越早出現的左括弧，與之配對之右括弧即越早出現。也就是說，檢驗括弧字串的合法性可以利用先進後出的堆疊。
