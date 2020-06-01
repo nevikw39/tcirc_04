@@ -116,6 +116,8 @@
 
 當然，`n, k` 一大起來（*> 10^6*）速度就會很慢。這時就需要尋找規律、推導公式。
 
+- [TCIRC Judge - b044](https://judge.tcirc.tw/ShowProblem?problemid=b044)
+
 ## Priority Queue 優先權佇列與 Heap 堆積
 
 *Priority Queue* 不是 *Queue*，就跟科氏力不是力一樣，原因是作業系統排程時，有些比較晚加入的工作比較急迫要插隊，所以才提出這種資料結構。總而言之，*Priority Queue* 是這樣的 `ADT`: 優先權越大的元素越早離開。
