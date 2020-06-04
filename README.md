@@ -79,6 +79,7 @@
 每當讀到左括弧就壓入堆疊，而遇到右括弧時檢查堆疊頂端的左括弧是否能與之配對，注意確認堆疊內是否有元素。
 
 - [TCIRC Judge - b041](https://judge.tcirc.tw/ShowProblem?problemid=b041)
+- [ZeroJudge b838](https://zerojudge.tw/ShowProblem?problemid=b838)
 - [GreenJudge d033](http://www.tcgs.tc.edu.tw:1218/ShowProblem?problemid=d033)
 - [UVA 673](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=8&page=show_problem&problem=614)
 
@@ -124,7 +125,7 @@
 
 ## Priority Queue 優先權佇列與 Heap 堆積
 
-*Priority Queue* 不是 *Queue*，就跟科氏力不是力一樣，原因是作業系統排程時，有些新加入的工作比較急迫需要插隊，所以才提出這種資料結構。總而言之，*Priority Queue* 是這樣的 `ADT`: 優先權越大的元素越早離開。
+*Priority Queue* 不是 *Queue*，就跟科氏力不是力一樣，原因是作業系統排程時，有些比較晚加入的工作比較急迫要插隊，所以才提出這種資料結構。總而言之，*Priority Queue* 是這樣的 `ADT`: 優先權越大的元素越早離開。
 
 *Priority Queue* 是抽象的，通常以 *Heap* 實作。*Heap* 是一種特殊的樹，對於任意節點其值必小於等於（或大於等於）其父節點。
 
@@ -132,11 +133,19 @@ __STL__ `priority_queue` 則使用 `vector` 及 __<algorithm>__ 中的 *make_hea
 
 ### 應用
 
-*Priority Queue* 在 __Prim Algorithm__, __Dijkstra Algorithm__ 中皆相當重要。
+*Priority Queue* 在 __Prim Algorithm__, __Dijkstra Algorithm__ 中皆相當重要，是貪婪演算法往往倚賴的資料結構。
 
-#### Huffman Encoding 霍夫曼編碼
+#### Huffman Coding 霍夫曼編碼
+
+霍夫曼編碼是一種變長而無失真的編碼。一中校內很愛考的感覺（？
 
 ##### Add All
+
+> 給定一些整數，求相加過程中的每次結果其和最小。
+
+每次都將最小與次小的兩數相加在放回 *Priority Queue*。
+
+此題與霍夫曼編碼有異曲同工之妙，整個過程恰似在建立霍夫曼樹。
 
 ##### 編碼長度
 
@@ -144,4 +153,8 @@ __STL__ `priority_queue` 則使用 `vector` 及 __<algorithm>__ 中的 *make_hea
 >
 > 這種每個字元的編碼長度不一的方法，稱為「變長編碼」。但是，一個字元的編碼不能是另一編碼的前綴 (prefix)。比如如使 `'A'` 為 __0__、 `'B'` 為 __1__、`'C'` 為 __01__，則 __001__ 可能為 `"AAB"` 或 `"AC"`。
 
-為了避免前綴重複，我們可以透過建立特別的二元樹 ― 霍夫曼樹 ― 的方式，合併若干字元，以其路徑的左 (__0__) 右 (__1__) 進行編碼。
+為了避免前綴重複，我們可以透過建立特別的二元樹 ― 霍夫曼樹 ― 的方式，以其路徑的左 (__0__) 右 (__1__) 進行編碼，僅以樹葉（末端節點）為字元，內部節點皆為樹葉的前綴。
+
+那麼問題就變成：如何構造一棵最佳的前綴編碼樹？？
+
+我們現在所求是每個字元的頻率（作為權值）與其所在深度之乘積和最小。我們可以如下操作：先把每個字元視為個別子樹，每次取權值最小兩個樹合併，所得新樹權值為兩子樹和，直到剩下一棵樹。
