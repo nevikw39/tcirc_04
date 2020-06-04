@@ -4,13 +4,17 @@
 ## 快速連結
 
 > **[上課簡報]()**
+>
 > [社團ＯＪ](https://judge.tcirc.tw)
+>
 > [社團網站](https://tcirc.tw)
+>
 > [Telegram 討論區](https://t.me/joinchat/KUNytVBKySskb35M4TdOig)
+>
 > [Python 班講義](https://hackmd.io/@RucKuo/Circ-Python)
-
+>
 > 特別感謝「*[星城數位科技](http://xincastle.com/)*」
-
+>
 > [表單](https://s.bentley.taipei/form)
 
 由於疫情關係，電腦教室鍵盤暫停使用，請同學改用螢幕小鍵盤或 Remote Mouse
@@ -135,3 +139,9 @@ __STL__ `priority_queue` 則使用 `vector` 及 __<algorithm>__ 中的 *make_hea
 ##### Add All
 
 ##### 編碼長度
+
+> 一般而言，普通的編碼每個英文字元都佔一個位元組，即八個位元。在 [破譯密碼](https://judge.tcirc.tw/ShowProblem?problemid=b037) 中，我們知道每個字元出現頻率不一、有高有低。假若我們令較少位元組代表較常出現的字元，那麼編碼長度就可以縮短惹！！
+>
+> 這種每個字元的編碼長度不一的方法，稱為「變長編碼」。但是，一個字元的編碼不能是另一編碼的前綴 (prefix)。比如如使 `'A'` 為 __0__、 `'B'` 為 __1__、`'C'` 為 __01__，則 __001__ 可能為 `"AAB"` 或 `"AC"`。
+
+為了避免前綴重複，我們可以透過建立特別的二元樹 ― 霍夫曼樹 ― 的方式，合併若干字元，以其路徑的左 (__0__) 右 (__1__) 進行編碼。
